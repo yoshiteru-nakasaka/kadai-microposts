@@ -6,8 +6,7 @@
       </div>
       <div class="panel-body">
         <img class="media-object img-rounded img-responsive" src="
-<%= gravatar_url(@user, { size: 500 }) %>
-" alt="">
+        <%= gravatar_url(@user, { size: 500 }) %>" alt="">
       </div>
     </div>
     <%= render "relationships/follow_button", user: @user %>
@@ -26,6 +25,9 @@
     </ul>
     
 <%= render "microposts/microposts", microposts: @microposts %>
-    
+
+<% if current_user == @user  %>
+<%= link_to "お気に入りリスト", likes_user_path(@user), class: "btn btn-default btn-block-xs" %>
+<% end %> 
   </div>
 </div>
